@@ -1,15 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Dealership Review</title>
-    {% load static %}
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-</head>
-
-<body>
 <nav class="navbar navbar-expand-lg">
-    <a class="navbar-brand" href="#">CAR PROJECT DH</a>
+    <a class="navbar-brand" href="#">Car Selling Project</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -34,9 +24,6 @@
                 <li class="nav-item">
                     <a class="nav-link" style="color: rgb(43, 238, 238);" href="logout/">Logout</a>
                 </li>
-                <li>
-                    <a class="nav-link" style="color: rgb(43, 238, 238);" href="add_review/"> Add Review</a>
-                </li>
             {% else %}
                 <li>
                     <a class="btn btn-link" href="/djangoapp/login/">Sign In</a>
@@ -46,29 +33,3 @@
         </ul>
     </div>
 </nav>
-<main class="container-fluid">
-    <div class="card-columns">
-        {% for review in reviews %}
-            <div class="card" style="height: 300px;">
-                <img src="{{ MEDIA_URL }}/emoji/{{ review.sentiment }}.png" class="card-img-center"
-                     style="height: 100px; width: 100px; margin-left: 35%; margin-bottom: 5%; margin-top: 2%;">
-                <div class="card-body" style="text-align: center;">
-                    <h5 class="card-title">{{ review.car_make }}, {{ review.car_model }}</h5>
-                    <h5 class="card-title">{{ review.car_year }}</h5>
-                    <p class="card-text">{{ review.review }}</p>
-                </div>
-            </div>
-        {% endfor %}
-    </div>
-    {% if not reviews %}
-        <div class="card">
-            <div class="card-body" style="text-align: center;">
-                <h5 class="card-title">No review exists for this dealership.</h5>
-            </div>
-        </div>
-    {% endif %}
-</main>
-
-</body>
-
-</html>

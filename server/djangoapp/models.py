@@ -1,5 +1,4 @@
 from django.db import models
-from django.utils.timezone import now
 
 
 class CarMake(models.Model):
@@ -18,7 +17,7 @@ class CarModel(models.Model):
     OTHERS = 'others'
     CAR_CHOICES = [(SEDAN, "Sedan"), (SUV, 'SUV'), (WAGON, 'Wagon'), (OTHERS, 'Others')]
     carmake = models.ForeignKey(CarMake, null=True, on_delete=models.CASCADE)
-    name = models.CharField(null=False, max_length=30, default='BMW E34')
+    name = models.CharField(null=False, max_length=30, default='Audi X8')
     dealerid = models.IntegerField(null=True)
     cartype = models.CharField(null=False, max_length=20, choices=CAR_CHOICES, default=SEDAN)
     year = models.DateField(null=True)
